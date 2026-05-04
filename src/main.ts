@@ -148,6 +148,8 @@ function analyzeCell(
   let maxG = 0;
   let minB = 255;
   let maxB = 0;
+  let minA = 255;
+  let maxA = 0;
 
   const data = srcData.data;
   const stride = srcData.width * 4;
@@ -170,11 +172,13 @@ function analyzeCell(
       if (g > maxG) maxG = g;
       if (b < minB) minB = b;
       if (b > maxB) maxB = b;
+      if (a < minA) minA = a;
+      if (a > maxA) maxA = a;
       i += 4;
     }
   }
 
-  const range = Math.max(maxR - minR, maxG - minG, maxB - minB);
+  const range = Math.max(maxR - minR, maxG - minG, maxB - minB, maxA - minA);
   const clean = count > 0 && range <= threshold;
 
   return {
