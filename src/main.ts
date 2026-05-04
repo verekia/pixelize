@@ -57,7 +57,7 @@ function loadFile(file: File) {
 
 function render() {
   if (!sourceImage) return;
-  const gridSize = clampInt(gridInput.value, 2, 512, 16);
+  const gridSize = clampInt(gridInput.value, 2, 512, 32);
   const threshold = clampInt(thresholdInput.value, 0, 255, 24);
   const showMap = showMapInput.checked;
 
@@ -130,8 +130,8 @@ function analyzeCell(
 
   // Inset by ~15% on each side to ignore anti-aliased grid borders that exist
   // even in clean pixel regions due to original PNG compression.
-  const insetX = Math.max(1, Math.floor((x1 - x0) * 0.15));
-  const insetY = Math.max(1, Math.floor((y1 - y0) * 0.15));
+  const insetX = Math.floor((x1 - x0) * 0.15);
+  const insetY = Math.floor((y1 - y0) * 0.15);
   const ix0 = x0 + insetX;
   const iy0 = y0 + insetY;
   const ix1 = Math.max(ix0 + 1, x1 - insetX);
@@ -265,8 +265,8 @@ function addCanvasItem(canvas: HTMLCanvasElement, size: number) {
   const upscaleBtn = document.createElement('button');
   upscaleBtn.className = 'download upscale';
   upscaleBtn.type = 'button';
-  upscaleBtn.textContent = 'Download 2056×2056 (nearest-neighbor)';
-  upscaleBtn.addEventListener('click', () => downloadUpscaled(canvas, 2056, size));
+  upscaleBtn.textContent = 'Download 2048×2048 (nearest-neighbor)';
+  upscaleBtn.addEventListener('click', () => downloadUpscaled(canvas, 2048, size));
 
   div.appendChild(meta);
   div.appendChild(canvas);
