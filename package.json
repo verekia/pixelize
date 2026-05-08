@@ -1,14 +1,22 @@
 {
   "name": "pixelize",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "typecheck": "tsc --noEmit",
+    "all": "bun run format:check && bun run lint && bun run typecheck"
   },
   "devDependencies": {
+    "oxfmt": "0.48.0",
+    "oxlint": "1.63.0",
     "typescript": "^5.6.3",
     "vite": "^6.0.3"
   }
