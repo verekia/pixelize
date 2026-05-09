@@ -10,6 +10,7 @@ type Cell = {
 
 type RenderData = {
   cells: Cell[][]
+  gridSize: number
   srcCanvas: HTMLCanvasElement
   srcW: number
   srcH: number
@@ -306,7 +307,7 @@ export const App = () => {
     sizes.add(Math.max(srcW, srcH))
     const sortedSizes = [...sizes].sort((a, b) => b - a)
 
-    setRenderData({ cells, srcCanvas, srcW, srcH, sizes: sortedSizes })
+    setRenderData({ cells, gridSize, srcCanvas, srcW, srcH, sizes: sortedSizes })
   }, [sourceImage, gridSize, threshold])
 
   return (
@@ -380,7 +381,7 @@ export const App = () => {
             size={size}
             cells={renderData.cells}
             srcCanvas={renderData.srcCanvas}
-            gridSize={gridSize}
+            gridSize={renderData.gridSize}
             srcW={renderData.srcW}
             srcH={renderData.srcH}
             showMap={showMap}
