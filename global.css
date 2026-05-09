@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg-0: #1a1a1a;
+  --color-bg-1: #232323;
+  --color-bg-2: #2a2a2a;
+  --color-bg-3: #1f1f1f;
+  --color-line: #444;
+  --color-line-strong: #555;
+  --color-text: #eee;
+  --color-muted: #aaa;
+  --color-muted-2: #888;
+  --color-accent: #1abc9c;
+}
+
+@layer base {
+  body {
+    background: var(--color-bg-0);
+    color: var(--color-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    background: var(--color-bg-2);
+    color: var(--color-text);
+    border: 1px solid var(--color-line);
+    padding: 6px 10px;
+    width: 90px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+}
+
+@layer components {
+  /* Pixel-art canvas — checkerboard background and crisp scaling. */
+  .canvas-pixelated {
+    image-rendering: pixelated;
+    background: repeating-conic-gradient(#2a2a2a 0% 25%, #1f1f1f 0% 50%) 0 0 / 16px 16px;
+  }
+}
