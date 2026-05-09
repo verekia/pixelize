@@ -214,7 +214,7 @@ const CanvasItem = ({ size, cells, srcCanvas, gridSize, srcW, srcH, showMap, fil
   }
 
   return (
-    <div className="flex flex-col gap-2 rounded-lg bg-bg-1 p-3">
+    <div className="bg-bg-1 flex flex-col gap-2 rounded-lg p-3">
       <div className="flex items-center justify-between text-[13px] text-[#ccc]">
         <span className="font-semibold">
           {size}×{size}
@@ -226,7 +226,7 @@ const CanvasItem = ({ size, cells, srcCanvas, gridSize, srcW, srcH, showMap, fil
         <a
           href={downloadUrl}
           download={`${fileName}-${size}.png`}
-          className="rounded border border-line px-2 py-1.5 text-center text-xs text-muted hover:border-line-strong hover:text-white"
+          className="border-line text-muted hover:border-line-strong rounded border px-2 py-1.5 text-center text-xs hover:text-white"
         >
           Download PNG
         </a>
@@ -234,7 +234,7 @@ const CanvasItem = ({ size, cells, srcCanvas, gridSize, srcW, srcH, showMap, fil
       <button
         type="button"
         onClick={downloadUpscaled}
-        className="rounded border border-accent px-2 py-1.5 text-center text-xs text-accent hover:bg-[rgba(26,188,156,0.1)] hover:text-white"
+        className="border-accent text-accent rounded border px-2 py-1.5 text-center text-xs hover:bg-[rgba(26,188,156,0.1)] hover:text-white"
       >
         Download 2048×2048 (nearest-neighbor)
       </button>
@@ -312,7 +312,7 @@ export const App = () => {
   return (
     <div className="mx-auto max-w-[1400px] p-6">
       <h1 className="mt-0 mb-4 text-2xl font-semibold">Pixelize Cleaner</h1>
-      <p className="max-w-[720px] leading-relaxed text-muted">
+      <p className="text-muted max-w-[720px] leading-relaxed">
         Drop a pixel-art-style image. Each cell of the configured grid is replaced with a perfect solid square if its
         pixels are uniform; cells that are not uniform (e.g. crossed by an anti-aliased diagonal) keep their original
         pixels. Multiple output sizes are produced so you can pick the smallest PNG that still renders the diagonal
@@ -372,7 +372,7 @@ export const App = () => {
           }}
         />
       </div>
-      <div className="mb-4 min-h-[18px] text-[13px] text-muted-2">{status}</div>
+      <div className="text-muted-2 mb-4 min-h-[18px] text-[13px]">{status}</div>
       <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
         {renderData?.sizes.map(size => (
           <CanvasItem
