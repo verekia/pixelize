@@ -4,22 +4,36 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "format": "oxfmt .",
-    "format:check": "oxfmt --check .",
+    "dev": "portless pixelize next dev",
+    "build": "next build",
+    "start": "serve out",
+    "postinstall": "next typegen",
+    "typecheck": "tsc --noEmit",
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
-    "typecheck": "tsc --noEmit",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
     "warden": "warden",
     "all": "bun run format:check && bun run lint && bun run typecheck && bun run warden"
   },
+  "dependencies": {
+    "next": "16.2.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
   "devDependencies": {
-    "@verekia/warden": "0.0.2",
+    "@tailwindcss/postcss": "4.2.2",
+    "@types/node": "25.5.2",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@verekia/warden": "0.0.3",
+    "babel-plugin-react-compiler": "1.0.0",
     "oxfmt": "0.48.0",
     "oxlint": "1.63.0",
-    "typescript": "^5.6.3",
-    "vite": "^6.0.3"
+    "portless": "0.13.0",
+    "postcss": "8.5.8",
+    "serve": "14.2.6",
+    "tailwindcss": "4.2.2",
+    "typescript": "6.0.2"
   }
 }
