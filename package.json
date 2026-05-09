@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "portless pixelize next dev",
     "build": "next build",
     "start": "serve out",
     "postinstall": "next typegen",
@@ -30,6 +30,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "oxfmt": "0.48.0",
     "oxlint": "1.63.0",
+    "portless": "0.13.0",
     "postcss": "8.5.8",
     "serve": "14.2.6",
     "tailwindcss": "4.2.2",
